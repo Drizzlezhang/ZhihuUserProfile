@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">ZhihuUserProfile</string>
+
+    <string name="simple_title">关注的话题</string>
+    <string name="number">233</string>
+    <string name="simple_content">2333333333333</string>
+    <string name="content">23333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333</string>
+    <string name="attention">关注</string>
+    <string name="my_questions">我的提问</string>
+    <string name="custom_title">最新动态</string>
+    <string name="question_title">写一个知乎客户端是什么体验？</string>
+    <string name="question_content">业务代码好麻烦啊好麻烦啊好麻烦啊好麻烦啊好麻烦啊好麻烦啊好麻烦啊好麻烦啊好麻烦啊好麻烦啊好麻烦啊好麻烦啊好麻烦啊好麻烦啊好麻烦啊好麻烦啊好麻烦啊好麻烦啊好麻烦啊好麻烦啊好麻烦啊好麻烦啊</string>
+    <string name="answer_question">我回答了问题</string>
+    <string name="date">3个月前</string>
+    <string name="comment">3评论·</string>
+    <string name="job">所在行业</string>
+    <string name="internet">互联网</string>
+    <string name="achievement">个人成就</string>
+    <string name="homepage">个人主页</string>
+    <string name="info_detail">详细信息</string>
+
 </resources>
