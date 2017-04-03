@@ -3,6 +3,7 @@ package com.drizzle.zhihuuserprofile.view;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,10 +15,11 @@ import android.view.ViewGroup;
 import com.drizzle.zhihuuserprofile.R;
 import com.drizzle.zhihuuserprofile.data.InfoItem;
 import com.drizzle.zhihuuserprofile.data.InfoItemProvider;
+import com.drizzle.zhihuuserprofile.widget.ZhihuUserProfileLayout;
 
 import java.util.List;
 
-public class UserInfoFragment extends Fragment {
+public class UserInfoFragment extends Fragment implements ZhihuUserProfileLayout.NestedScrollViewProvider {
 
     private static final String KEY_TYPE_INFO = "key_type_info";
 
@@ -66,12 +68,18 @@ public class UserInfoFragment extends Fragment {
         mRecyclerView.setAdapter(mAdapter);
     }
 
-    class UserInfoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    @NonNull
+    @Override
+    public RecyclerView getNestedScrollView() {
+        return mRecyclerView;
+    }
+
+    private class UserInfoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         private List<InfoItem> mInfoList;
         private Context mContext;
 
-        public UserInfoAdapter(List<InfoItem> infoList, Context context) {
+        UserInfoAdapter(List<InfoItem> infoList, Context context) {
             mInfoList = infoList;
             mContext = context;
         }
@@ -87,7 +95,7 @@ public class UserInfoFragment extends Fragment {
                     return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_detail_info, parent, false));
                 case InfoItem.TYPE_PERSONAL_ACHIEVEMENT:
                     return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_personal_achievement, parent, false));
-                case InfoItem.TYPE_SIMPE_ITEM:
+                case InfoItem.TYPE_SIMPLE_ITEM:
                     return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_simple_item, parent, false));
                 case InfoItem.TYPE_QUESTION:
                     return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_question, parent, false));
@@ -112,7 +120,7 @@ public class UserInfoFragment extends Fragment {
         }
 
         class ViewHolder extends RecyclerView.ViewHolder {
-            public ViewHolder(View itemView) {
+            ViewHolder(View itemView) {
                 super(itemView);
             }
         }

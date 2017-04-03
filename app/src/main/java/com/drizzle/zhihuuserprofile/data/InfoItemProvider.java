@@ -12,7 +12,7 @@ public class InfoItemProvider {
         List<InfoItem> homepageInfoList = new ArrayList<>();
         homepageInfoList.add(new InfoItem(InfoItem.TYPE_SIMPLE_INFO));
         for (int i = 0; i < 6; i++) {
-            homepageInfoList.add(new InfoItem(InfoItem.TYPE_SIMPE_ITEM));
+            homepageInfoList.add(new InfoItem(InfoItem.TYPE_SIMPLE_ITEM));
         }
         homepageInfoList.add(new InfoItem(InfoItem.TYPE_CUSTOM_TITLE));
         for (int i = 0; i < 20; i++) {
@@ -30,7 +30,4 @@ public class InfoItemProvider {
         return detailInfoList;
     }
 
-    public static int getInfoTypeCount() {
-        return 8;
-    }
 }
