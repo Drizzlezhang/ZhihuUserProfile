@@ -59,6 +59,7 @@ public class ZhihuUserProfileLayout extends RelativeLayout {
         mCollapsingOffset = array.getDimensionPixelOffset(R.styleable.ZhihuUserProfileLayout_collapsing_offset,
                 (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 0, getResources().getDisplayMetrics()));
         array.recycle();
+        mMinSrollY = 0;
         mScroller = new Scroller(context);
         mViewConfiguration = ViewConfiguration.get(context);
         mVelocityTracker = VelocityTracker.obtain();
