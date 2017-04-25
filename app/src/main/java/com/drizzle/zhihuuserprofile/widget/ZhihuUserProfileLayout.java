@@ -59,6 +59,10 @@ public class ZhihuUserProfileLayout extends RelativeLayout {
         mCollapsingOffset = array.getDimensionPixelOffset(R.styleable.ZhihuUserProfileLayout_collapsing_offset,
                 (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 0, getResources().getDisplayMetrics()));
         array.recycle();
+        init(context);
+    }
+
+    private void init(Context context) {
         mMinSrollY = 0;
         mScroller = new Scroller(context);
         mViewConfiguration = ViewConfiguration.get(context);
@@ -85,20 +89,12 @@ public class ZhihuUserProfileLayout extends RelativeLayout {
         super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(MeasureSpec.getSize(heightMeasureSpec) + mMaxScrollY, MeasureSpec.EXACTLY));
     }
 
-    public void setNestedScrollViewProvider(NestedScrollViewProvider nestedScrollViewProvider) {
-        mNestedScrollViewProvider = nestedScrollViewProvider;
-    }
-
-    public void setOnCollapsingListener(OnCollapsingListener onCollapsingListener) {
-        mOnCollapsingListener = onCollapsingListener;
-    }
-
-    private boolean isCollapsingViewSnapped() {
-        return mCurrentScrollY == mMaxScrollY;
-    }
-
     private boolean isCollapsingViewExpanded() {
         return mCurrentScrollY == mMinSrollY;
+    }
+    
+    private boolean isCollapsingViewSnapped() {
+        return mCurrentScrollY == mMaxScrollY;
     }
 
     private int getScrollerVelocity() {
@@ -215,6 +211,14 @@ public class ZhihuUserProfileLayout extends RelativeLayout {
         }
         mCurrentScrollY = y;
         super.scrollTo(x, y);
+    }
+
+    public void setNestedScrollViewProvider(NestedScrollViewProvider nestedScrollViewProvider) {
+        mNestedScrollViewProvider = nestedScrollViewProvider;
+    }
+
+    public void setOnCollapsingListener(OnCollapsingListener onCollapsingListener) {
+        mOnCollapsingListener = onCollapsingListener;
     }
 
     private boolean isNestedScrollViewTop() {
